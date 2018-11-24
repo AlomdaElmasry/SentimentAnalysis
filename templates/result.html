@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Sentipedia</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="../static/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="../static/css/paper-dashboard.css" rel="stylesheet"/>
+
+
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="../static/css/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+    <link rel="shortcut icon" href="../static/imgs/favicon.ico">
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+{%include 'navbar.html'%}
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big  icon-info text-center">
+                                            <i class="ti-twitter-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Total</p>
+                                             {%print(result1.tweets_num)%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-face-smile" ></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Positive</p>
+                                            {%print(result1.positive_tweets_num)%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="ti-comments-smiley"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Neutral</p>
+                                            {%print(result1.neutral_tweets_num)%}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="ti-face-sad"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Negative</p>
+                                            {%print(result1.negative_tweets_num)%}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {%if display == True%}
+                <form method="post" action="/save_result">
+
+                    <input type="hidden" name="negative" value="{{result1.negative_tweets_num}}">
+                    <input type="hidden" name="neutral" value="{{result1.neutral_tweets_num}}">
+                    <input type="hidden" name="positive" value="{{result1.positive_tweets_num}}">
+
+                    <input type="submit" value="Save">
+                </form>
+                <br>
+                {%endif%}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Pie Chart</h4>
+                                <p class="category">This Chart Show The statistics of Positive , Negative and Neutral Tweets</p>
+                            </div>
+                            <div class="content">
+                           <center>
+                            {% if bar!=None %}
+                               {{pie[1]}}
+                               {{pie[0]}}
+                            {% else %}
+                              {{print("No Chart To show")}}
+                            {% endif %}
+                           </center>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                   <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Bar Chart Of Tweets</h4>
+                                <p class="category">This Chart Show The statistics of Positive , Negative and Neutral Tweets</p>
+                            </div>
+                            <center>
+                            {% if bar!=None %}
+							  {{ bar[1] }}
+                              {{ bar[0] }}
+                            {% else %}
+                              {{print("No Chart To show")}}
+                            {% endif %}
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">bar Chart</h4>
+                                <p class="category">This Chart Show The Most Words In Tweets</p>
+                            </div>
+                            <div class="content">
+                            <center>
+                             {% if bar_words!=None %}
+							  {{ bar_words[1] }}
+                              {{ bar_words[0] }}
+                            {% else %}
+                              {{print("No Chart To show")}}
+                            {% endif %}
+                            </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">pie Chart</h4>
+                                <p class="category">This Chart Show The Most Words In Tweets</p>
+                            </div>
+                            <div class="content">
+                            <center>
+                             {% if pie_words!=None %}
+                              {{ pie_words[1] }}
+                              {{ pie_words[0] }}
+                            {% else %}
+                              {{print("No Chart To show")}}
+                            {% endif %}
+                            </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Time Series</h4>
+                                <p class="category">This Chart Show The Time Series</p>
+                            </div>
+                            <div class="content">
+                            <center>
+                             {% if time!=False %}
+                              {{ time[1] }}
+                              {{ time[0] }}
+                            {% else %}
+                              {{"No Chart To show"}}
+                            {% endif %}
+                            </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+
+                <div class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a>Sentipedia</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+
+</body>
+
+
+<!--   Core JS Files   -->
+    <script src="../static/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="../static/js/bootstrap-checkbox-radio.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../static/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../static/js/bootstrap-notify.js"></script>
+
+
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="../static/js/paper-dashboard.js"></script>
+
+
+
+
+</html>

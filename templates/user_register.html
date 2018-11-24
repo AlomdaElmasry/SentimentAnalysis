@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>Sentipedia</title>
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+
+        <!-- Bootstrap core CSS     -->
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Animation library for notifications   -->
+        <link href="../static/css/animate.min.css" rel="stylesheet"/>
+
+        <!--  Paper Dashboard core CSS    -->
+        <link href="../static/css/paper-dashboard.css" rel="stylesheet"/>
+
+
+
+        <!--  Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+        <link href="../static/css/themify-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+        <link rel="shortcut icon" href="../static/imgs/favicon.ico">
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+       {%include 'navbar.html'%}
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+
+                        <h1 class="well">User Registration Form</h1>
+
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <div class="content">
+                <div class="container-fluid">
+
+                    <div class="col-md-12">
+                    <div class="row">
+                                <form method="post" action="{{ url_for('py_register') }}">
+                                    <br class="col-md-12">
+
+                                        <input type="hidden" value="user" name="user_type">
+
+                                        <div class="col-sm-6 form-group">
+                                            <label>User Name</label>
+
+                                            <input type="text" placeholder="Enter User Name Here.." class="form-control" name="username">
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <label>Password</label>
+                                            <input type="password" placeholder="Enter Password Here.." class="form-control" name="password">
+                                        </div>
+
+                                        <div class="col-sm-6 form-group">
+                                            <label>Full Name</label>
+                                            <input type="text" placeholder="Enter Full Name Here.." class="form-control" name="full_name">
+                                        </div>
+
+                                        <div class="col-sm-6 form-group">
+                                            <label>Phone Number</label>
+                                            <input type="text" placeholder="Enter Phone Number Here.." class="form-control" name="phone">
+                                        </div>
+
+                                        <div class="col-sm-6 form-group">
+                                            <label>Email</label>
+                                            <input type="email" placeholder="Enter Email Here.." class="form-control" name="email">
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-lg btn-info" style="float:right" >Submit</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

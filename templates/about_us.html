@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>Sentipedia</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+
+
+        <meta name="csrf-param" content="authenticity_token">
+        <link rel="shortcut icon" href="../static/imgs/favicon.ico">
+
+
+         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href = "../static/css/bootstrap.css" media="all" type="text/css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+         <link href="../static/css/paper-dashboard.css" rel="stylesheet"/>
+
+
+
+    <!--  Fonts and icons     -->
+
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="../static/css/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+
+
+
+
+    </head>
+<body>
+
+<div class="wrapper">
+    {%include 'navbar.html'%}
+            <div class="main-panel">
+                <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xxs-12 col-lg-10 m-x-auto">
+                            <center class="card card-lg p-b-0 text-xxs-center">
+                            <section class="card card-lg" id="about-about">
+                                <div class="header">
+                                <h1 class="header"> Our Mission </h1>
+
+                                </div>
+                                <div class="text-xs text-justify m-x-auto" style="max-width: 74rem;">
+                                    <p class="category">In this project, we aim to design a web application that analyzes big volumes of Arabic reviews, social networks posts
+And tweets about specific product,
+Then, presents the results of this big data analytics job
+In a user friendly, understandable, and easily interpreted manner that can be easily used by different customers for different purposes.</p>
+                                    <p class="category">And to make the user upload his training and test data
+And choose one or more algorithm to compare between their accuracy and test one of them if he need..</p>
+                                    </div>
+                              <br><br><br>
+                            </section>
+                                </center>
+
+                <center class="card card-lg p-b-0 text-xxs-center" id="about-leadership">
+                    <div class="header">
+                       <h2 class="header">Team Members</h2>
+
+                      <section class="card card-lg" >
+                                    <div class="row">
+                                        <div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl">
+                                            <img class="img-circle img-fluid m-x-auto m-b" style="width: 112px;" src="../static/imgs/abdalla.jpg" alt="Abdullah">
+                                            <h3 class="text-md text-bold">Abdullah Ahmmed</h3>
+                                            <p class="category ">Team Leader</p>
+                                        </div>
+                                        <div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl">
+                                            <img class="img-circle img-fluid m-x-auto m-b" style="width: 112px;" src="../static/imgs/nasr.jpg" alt="Mohammed Nasr">
+                                            <h3 class="text-md text-bold">Mohammed Nasr</h3><p class="category">Team Member</p>
+                                            <p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;"></p>
+                                            <p class="text-xxs text-uppercase text-bold"></p>
+                                            <p class="text-xxs"></p></div>
+                                        <div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl">
+                                            <img class="img-circle img-fluid m-x-auto m-b" style="width: 112px;" src="../static/imgs/jebril.jpg" alt="Mohammed jebril">
+                                            <h3 class="text-md text-bold">Mohammed Jebril</h3>
+                                            <p class="category">Team Member</p>
+                                            <p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;"></p>
+                                            <p class="text-xxs text-uppercase text-bold"></p>
+                                            <p class="text-xxs"></p>
+                                        </div>
+                                        <div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl">
+                                            <img class="img-circle img-fluid m-x-auto m-b" style="width: 112px;" src="../static/imgs/ammar.jpg" alt="Mohammed Ammar">
+                                            <h3 class="text-md text-bold">Mohammed Ammar</h3>
+                                            <p class="category">Team Member</p>
+                                            <p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;"></p>
+                                            <p class="text-xxs text-uppercase text-bold"></p>
+                                            <p class="text-xxs"></p>
+                                        </div>
+                                         <div class="col-xxs-12 col-sm-6 col-xxl-3 m-b-xxl">
+                                            <img class="img-circle img-fluid m-x-auto m-b" style="width: 112px;" src="../static/imgs/alaa.jpg" alt="Mohammed Alaa">
+                                            <h3 class="text-md text-bold">Mohammed Alaa</h3>
+                                            <p class="category">Team Member</p>
+                                            <p class="text-xs m-b-sm m-x-auto" style="max-width: 35rem;"></p>
+                                            <p class="text-xxs text-uppercase text-bold"></p>
+                                            <p class="text-xxs"></p>
+                                          </div>
+                                    </div>
+
+                      </section>
+                    </div>
+                </center>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+
+    </body>
+
+<!--   Core JS Files   -->
+    <script src="../static/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="../static/js/bootstrap-checkbox-radio.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../static/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../static/js/bootstrap-notify.js"></script>
+
+
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="../static/js/paper-dashboard.js"></script>
+</html>
