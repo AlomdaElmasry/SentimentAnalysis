@@ -11,10 +11,10 @@ class TwitterAPI:
     query = None
     number_of_tweets = None
     date = None
-    consumer_key = "YzOvqcRjnMmuILUmDD2OCPatM"
-    consumer_secret = "lWTZjwzY6X6IIgcIlya1fY1XTF1JuNXxOaHGcyt1ygJrLz8QBw"
-    access_token = "777478550572130304-6DDnkvSWZQt9Hyx5MVMI9vBb6GbD6ry"
-    access_secret = "m1vuJoc4GDEblpDXoLm0DVD7MgmhFlq5b2HolSRBFurgG"
+    consumer_key = ""
+    consumer_secret = ""
+    access_token = ""
+    access_secret = ""
     data_clean = DataCleaner()
     tweets_classifier = TweetClassifier()
 
@@ -47,31 +47,7 @@ class TwitterAPI:
         return tweets
 
 
-    # def realtime_file(self, tweets):
-    #
-    #
-    #     self.tweets_classifier.put_word_features()
-    #     classifier = self.tweets_classifier.load_classifier()
-    #
-    #     # clean_tweets = self.data_clean.prepare_data_set(tweets)
-    #
-    #     workbook = xlsxwriter.Workbook(r"C:\Users\Mohammed\Desktop\new.xlsx")
-    #     worksheet = workbook.add_worksheet('Sheet1')
-    #
-    #     for row,tweet in enumerate(tweets):
-    #         if tweet != str(tweet):
-    #             row+=1
-    #         else:
-    #             clean_tweet = self.data_clean.prepare_data_list(str(tweet).split())
-    #             key = classifier.classify(self.tweets_classifier.extract_features(clean_tweet))
-    #             worksheet.write(row, 0, tweet)
-    #             worksheet.write(row, 1, key)
-
-
-        #dataframe = pd.read_excel(r"C:\Users\Mohamed\Desktop\new.xlsx" , names=['tweets', 'class'])
-
-
-       # return dataframe
+   
 
 
 
@@ -82,12 +58,7 @@ class TwitterAPI:
     def classify(self,tweets,filename):
 
 
-        # text = self.data_clean.prepare_data_list(list(text1))
-        # classifier = self.tweets_classifier.load_classifier()
-        # vectorizer = self.tweets_classifier.put_word_features()
-        # tfidf= vectorizer.transform(text)
-        # result = classifier.predict(tfidf)
-        # print(result)
+       
 
         clean_tweets = self.data_clean.prepare_data_list(list(tweets))
         classifier = self.tweets_classifier.load_classifier()
@@ -106,12 +77,7 @@ class TwitterAPI:
 
     def classify_real_time(self, tweets, filename):
 
-            # text = self.data_clean.prepare_data_list(list(text1))
-            # classifier = self.tweets_classifier.load_classifier()
-            # vectorizer = self.tweets_classifier.put_word_features()
-            # tfidf= vectorizer.transform(text)
-            # result = classifier.predict(tfidf)
-            # print(result)
+         
 
             clean_tweets = self.data_clean.prepare_data_list(list(tweets))
             classifier = self.tweets_classifier.load_classifier()
